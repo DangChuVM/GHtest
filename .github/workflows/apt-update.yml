@@ -1,0 +1,18 @@
+# yaml
+name: APT Update & Upgrade
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:  # Cho phép chạy thủ công từ giao diện web GitHub
+
+jobs:
+  apt-upgrade:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Update apt
+        run: sudo apt update
+
+      - name: Upgrade packages
+        run: sudo apt upgrade -y
